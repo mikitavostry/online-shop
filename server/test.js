@@ -1,20 +1,16 @@
 const e = require("express");
 
-var reverse = function (x) {
-    positive = true;
-    if (x < 0) {
-        positive = false;
+var strStr = function (haystack, needle) {
+    if (!needle) {
+        return 0
     }
-    reversed = parseInt(Math.abs(x).toString().split('').reverse().join(''), 10);
-    if (reversed.toString(2).length > 31) {
-        return 0;
+    for (let i = 0; i < haystack.length; i++) {
+        console.log(haystack.slice(i, i + needle.length))
+        if (haystack.slice(i, i + needle.length) === needle) {
+            return i;
+        }
     }
-    if (!positive) {
-        return -reversed;
-    }
-    return reversed;
-};
 
-console.log(reverse(-12300))
-num = 1563847412
-console.log(num.toString(2).length)
+    return -1;
+}
+console.log(strStr('hello', 'll'))
