@@ -23,7 +23,7 @@ const Auth = () => {
                         className='mt-3'
                         placeholder='enter password'
                     />
-                    <Row className='d-flex justify-content-between mt-3 pl-3 pr-3'>
+                    <div className='d-flex justify-content-between mt-3 pl-3 pr-3'>
                         {isLogin ?
                             <div>
                                 Have no account?<NavLink to={REGISTRATION_ROUTE}>Registration</NavLink>
@@ -33,16 +33,15 @@ const Auth = () => {
                                 Have an account?<NavLink to={LOGIN_ROUTE}>Log in</NavLink>
                             </div>
                         }
-                        <Button
-                            variant='outline-success'>
 
+                        <Button variant='outline-success'>
                             {isLogin ?
                                 'Enter'
                                 :
                                 'Register'
                             }
                         </Button>
-                    </Row>
+                    </div>
 
                 </Form>
             </Card>
