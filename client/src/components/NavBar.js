@@ -8,16 +8,20 @@ import { Button } from "react-bootstrap";
 import { observer } from "mobx-react-lite";
 import Container from "react-bootstrap/Container";
 import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+
+
 const NavBar = observer(() => {
     const { user } = useContext(Context)
+    const navigate = useNavigate()
     return (
         <Navbar bg="dark" variant="dark">
             <Container>
                 <NavLink style={{ color: 'white' }} to={SHOP_ROUTE} >DivesShop</NavLink>
                 {user.isAuth ?
                     <Nav className="ms-auto" style={{ color: 'white' }}>
-                        <Button variant={'outline-light'}>Admin panel</Button>
-                        <Button variant={'outline-light'} className='ms-2'>Log out</Button>
+                        <Button variant={'outline-light'} onClick={() => navigate(ADMIN_ROUTE)}>Admin panel</Button>
+                        <Button variant={'outline-light'} className='ms-2' onClick={() => navigate(LOGIN_ROUTE)} >Log out</Button>
                     </Nav>
                     :
                     <Nav className="ms-auto" style={{ color: 'white' }}>

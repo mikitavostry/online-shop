@@ -19,7 +19,10 @@ export default class DeviceStore {
             { id: 2, name: "Iphone 12 pro", price: 1200, rating: 5, img: '../../public/logo192.png' },
             { id: 3, name: "Iphone 12 pro", price: 1200, rating: 5, img: '../../public/logo192.png' },
             { id: 4, name: "Iphone 12 pro", price: 1200, rating: 5, img: '../../public/logo192.png' },
-            { id: 5, name: "Iphone 12 pro", price: 1200, rating: 5, img: '../../public/logo192.png' }
+            { id: 5, name: "Iphone 12 pro", price: 1200, rating: 5, img: '../../public/logo192.png' },
+            { id: 6, name: "Iphone 12 pro", price: 1200, rating: 5, img: '../../public/logo192.png' },
+            { id: 7, name: "Iphone 12 pro", price: 1200, rating: 5, img: '../../public/logo192.png' }
+
 
         ]
         this._selectedType = {}
