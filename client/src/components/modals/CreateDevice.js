@@ -3,6 +3,7 @@ import Modal from "react-bootstrap/Modal";
 import { Button, Dropdown, Form, Row, Col } from "react-bootstrap";
 import { Context } from "../../index";
 import { observer } from "mobx-react-lite";
+import { createDevice, fetchBrands, fetchTypes } from '../../http/deviceAPI';
 
 const CreateDevice = observer(({ show, onHide }) => {
     const { device } = useContext(Context)
@@ -11,6 +12,10 @@ const CreateDevice = observer(({ show, onHide }) => {
     const [file, setFile] = useState(null)
     const [info, setInfo] = useState([])
 
+    useEffect(() => {
+        fetchTypes().then(data => device.setTypes(data))
+        fetchBrands().then(data => device.setBrands(data))
+    }, [])
 
     const addInfo = () => {
         setInfo([...info, { title: '', description: '', number: Date.now() }])
@@ -34,7 +39,7 @@ const CreateDevice = observer(({ show, onHide }) => {
         formData.append('brandId', device.selectedBrand.id)
         formData.append('typeId', device.selectedType.id)
         formData.append('info', JSON.stringify(info))
-        // createDevice(formData).then(data => onHide())
+        createDevice(formData).then(data => onHide())
     }
 
     return (

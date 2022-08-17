@@ -12,7 +12,7 @@ const DeviceList = observer(() => {
     return (
         <Row className="d-flex">
             {device.devices.map(device =>
-                <DeviceItem key={device.id} name={device.name} rating={device.rating} id={device.id} />
+                <DeviceItem key={device.id} name={device.name} rating={device.rating} id={device.id} img={device.img} />
             )}
         </Row>
     );
